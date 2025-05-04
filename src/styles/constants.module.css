@@ -1,0 +1,9 @@
+:root {
+   --primary:       #494949;
+   --secondary:     #5d8eba;
+   --tertiary:      #FFF;
+   --accent1:       #81D7D8;
+   --accent2:       #947ED1;
+   --border-radius: .25rem;
+   font-family: 'Roboto', sans-serif;
+}

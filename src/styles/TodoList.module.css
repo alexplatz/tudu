@@ -1,0 +1,13 @@
+.flexContainer {
+  margin: 0 auto;
+  max-width: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.todoList {
+  list-style-type: none;
+  padding: 0;
+}

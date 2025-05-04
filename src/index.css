@@ -1,0 +1,28 @@
+/* only for greater-than-app styles */
+/* keep this minimal to prevent confusion */
+
+/* @import '#styles/constants.module.css'; */
+
+/* ~730px */
+/* @media (min-width: 45.628rem) { */
+   /* .factoids { */
+      /* justify-content: space-between; */
+      /* text-align: left; */
+      /* max-width: 50rem; */
+   /* } */
+/* } */
+
+html {
+  /* min-height: 100vh; */
+  /* color-scheme: light dark; */
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0 .5rem;
+  /* background: var(--primary from '#styles/constants.css'); */
+}
+
+input {
+  box-sizing: border-box;
+}
