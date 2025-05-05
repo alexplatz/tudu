@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export const useLocalStorage = <T>(key: string, defaultValue: T) => {
-  const [value, setValue] = useState(() => {
+  const [storage, setStorage] = useState(() => {
     const storedValue = localStorage.getItem(key)
 
     return storedValue ?
@@ -10,11 +10,11 @@ export const useLocalStorage = <T>(key: string, defaultValue: T) => {
   })
 
   useEffect(
-    () => value ?
-      localStorage.setItem(key, JSON.stringify(value)) :
+    () => storage ?
+      localStorage.setItem(key, JSON.stringify(storage)) :
       undefined,
-    [key, value]
+    [key, storage]
   )
 
-  return [value, setValue]
+  return [storage, setStorage]
 }

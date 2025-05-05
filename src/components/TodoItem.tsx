@@ -1,25 +1,21 @@
-import React from "react"
+import { ChangeEvent } from "react"
 import { JSX } from "react"
-import { useState } from "react"
 import styles from "#styles/TodoItem.module.css"
 
 interface TodoItemProps {
   label: string,
   value: boolean
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
-export const TodoItem = ({label, value}: TodoItemProps): JSX.Element => {
-  const [checked, setChecked] = useState(value)
-
-  const handleChange = () => setChecked(!checked) 
-  
+export const TodoItem = ({label, value, handleChange}: TodoItemProps): JSX.Element => {
   return (
     <label>
       <input
         className={styles.item}
         type="checkbox"
-        checked={checked}
-        onChange={handleChange}
+        checked={value}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
       />
       {label}
     </label>
