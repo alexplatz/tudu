@@ -3,12 +3,12 @@ import { JSX } from "react"
 import { useState } from "react"
 import styles from "#styles/TodoItem.module.css"
 
-interface CheckboxProps {
+interface TodoItemProps {
   label: string,
   value: boolean
 }
 
-export const TodoItem = ({label, value}: CheckboxProps): JSX.Element => {
+export const TodoItem = ({label, value}: TodoItemProps): JSX.Element => {
   const [checked, setChecked] = useState(value)
 
   const handleChange = () => setChecked(!checked) 

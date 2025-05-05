@@ -2,36 +2,32 @@ import React, { ChangeEvent, useState } from "react";
 import { TodoInput } from "./TodoInput";
 import { TodoItem } from "./TodoItem"
 import styles from '#styles/TodoList.module.css'
+import { TodoItemData } from '#types'
+import { useLocalStorage } from "#hooks";
 
-type TodoItem = {
-    id: number,
-    label: string,
-    value: boolean
-}
-
- export const TodoList = () => {
-  // set Todos after checking state or on user update
+export const TodoList = () => {
+  const [value, setValue] = useLocalStorage<TodoItemData[]>('todos', [])
   const [text, setText] = useState<string>('');
-  const [todos, setTodos] = useState<TodoItem[]>([]);
+  // const [todos, setTodos] = useState<TodoItemData[]>(value);
 
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setTodos([
-      ...todos,
+    setValue([
+      ...value,
       {
         id: Date.now(),
         label: text,
         value: false
       }
     ])
-    setText('')
+    setText(() => '')
   }
 
   return (
     <main className={styles.flexContainer}>
       <div>
         <ul className={styles.todoList}>{
-          todos.map(({id, label, value}) =>
+          value.map(({id, label, value}: TodoItemData) =>
             <li key={id}>
               <TodoItem
                 label={label}
